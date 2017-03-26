@@ -16,6 +16,11 @@ ratings:
 exclude_paths:
 - jasmine/lib/jasmine-2.3.4/jasmine-html.js
 - jasmine/lib/jasmine-2.3.4/jasmine.js
+- jasmine/lib/jasmine-2.3.4/jasmine.css
+- jasmine/lib/jasmine-2.3.4/console.js
+- jasmine/lib/jasmine-2.3.4/boot.js
+- jasmine/build/bundle.js
 - coverage/**/**/*
 - gulpfile.js
+- karma.config.js
 
