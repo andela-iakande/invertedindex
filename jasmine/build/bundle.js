@@ -11,34 +11,77 @@ module.exports=books = [
   {
     "title": "The Lord of the Rings: The Fellowship of the Ring.",
     "text": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring.",
+    "text": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
+  }
+]
+},{}],3:[function(require,module,exports){
+module.exports=[
+  {
+    "title": "Alice hello in Wonderland",
+    "text": "Alice falls into a rabbit hole and enters a world full of imagination."
+  },
+
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring.",
+    "text": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
+  }
+]
+},{}],4:[function(require,module,exports){
+module.exports=bookwrongformat = [
+  {
+    "what": "Alice in Wonderland",
+    "next": "Alice falls into a rabbit hole and enters a world full of imagination."
+  },
+
+  {
+    "are": "The Lord of the Rings: The Fellowship of the Ring.",
+    "how": "An unusual alliance of man, elf, dwarf, wizard and hobbit seek to destroy a powerful ring."
   }
 ]
 
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
+module.exports=notBook = {
+  "title": "hello",
+  "text": "hello"
+}
+},{}],6:[function(require,module,exports){
 /* Test Setup */
 const myInvertedIndex = new InvertedIndexClass();
 const book = require('./../books.json');
 const emptyBook = require('./../bookempty.json');
+const wrongBook = require('./../bookwrongformat.json');
+const notBook = require('./../notBook.json');
+const books = require('./../books3.json');
 
 myInvertedIndex.files['book.json'] = book;
-
+myInvertedIndex.files['books3.json'] = books;
 
 /* Test Suites */
 describe('Inverted Index Test', () => {
   describe('ReadFile', () => {
-    it('should return false when checking a bad JSON array', () => {
+    it('should return false when checking an empty JSON array', () => {
       expect(myInvertedIndex.readFile(emptyBook))
         .toBeFalsy();
     });
-
-    it('should return true when if a good JSON array', () => {
+    it('should return false when checking an wrongformatted JSON array', () => {
+      expect(myInvertedIndex.readFile(wrongBook))
+        .toBeFalsy();
+    });
+    it('should return false when book is not an array', () => {
+      expect(myInvertedIndex.readFile(notBook))
+        .toBeFalsy();
+    });
+    it('should return true if a valid JSON array', () => {
       expect(myInvertedIndex.readFile(book))
         .toBeTruthy();
     });
 
     it('should return correct keys for files when file is saved', () => {
       expect(Object.keys(myInvertedIndex.files))
-        .toEqual(['book.json']);
+        .toEqual(['book.json', 'books3.json']);
     });
 
     it('should ensure the file content is saved accurrately', () => {
@@ -47,9 +90,13 @@ describe('Inverted Index Test', () => {
     });
   });
 
-  describe('Populate Index Table', () => {
+  describe('Show Index Table', () => {
     it('should ensure that index is created', () => {
       expect(myInvertedIndex.createIndex('book.json'))
+        .toBeTruthy();
+    });
+    it('should ensure that index is created', () => {
+      expect(myInvertedIndex.createIndex('books3.json'))
         .toBeTruthy();
     });
 
@@ -60,15 +107,24 @@ describe('Inverted Index Test', () => {
   });
 
   describe('Search Index', () => {
-    it('should return correct index of the search term', () => {
+    it('should return correct index of the search term in all books', () => {
       expect(myInvertedIndex.searchIndex('alice'))
-        .toEqual({ 'book.json': { alice: [0] } });
+      .toEqual({ 'book.json': { alice: [0] }, 'books3.json': { alice: [0] } });
+    });
+    it('should return correct index of the search term in books3.json', () => {
+      expect(myInvertedIndex.searchIndex('an alice', ['book.json', 'books3.json']))
+      .toEqual({ 'book.json': { an: [1, 2] },
+        'books3.json': { an: [1] } });
     });
     it('should return false when no result is found', () => {
+      expect(myInvertedIndex.searchIndex('impossibility'))
+        .toBeFalsy();
+    });
+    it('should return true when the result is found', () => {
       expect(myInvertedIndex.searchIndex('impossibility'))
         .toBeFalsy();
     });
   });
 });
 
-},{"./../bookempty.json":1,"./../books.json":2}]},{},[3])
+},{"./../bookempty.json":1,"./../books.json":2,"./../books3.json":3,"./../bookwrongformat.json":4,"./../notBook.json":5}]},{},[6])
