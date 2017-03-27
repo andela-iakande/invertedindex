@@ -1,27 +1,15 @@
 engines:
   eslint:
     enabled: true
-    channel: "eslint-2"
   duplication:
     enabled: false
-    checks:
-      Similar code:
-        enabled: false
     config:
       languages:
       - javascript
 ratings:
   paths:
-  - src/*.js
+  - "**.js"
 exclude_paths:
-- jasmine/lib/jasmine-2.3.4/jasmine-html.js
-- jasmine/lib/jasmine-2.3.4/jasmine.js
-- jasmine/lib/jasmine-2.3.4/jasmine.css
-- jasmine/lib/jasmine-2.3.4/console.js
-- jasmine/lib/jasmine-2.3.4/boot.js
+- jasmine/
 - src/js/app.js
-- jasmine/build/bundle.js
-- coverage/**/**/*
-- gulpfile.js
-- karma.conf.js
-
+-
