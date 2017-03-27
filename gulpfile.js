@@ -46,7 +46,7 @@ gulp.task('scripts', () => {
    .pipe(gulp.dest('jasmine/build'));
 });
 
-gulp.task('test-jas', ['scripts', 'jasmine']);
+gulp.task('test-jasmine', ['scripts', 'jasmine']);
 
 /**
  * Run test once and exit

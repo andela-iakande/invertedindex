@@ -112,9 +112,10 @@ describe('Inverted Index Test', () => {
       .toEqual({ 'book.json': { alice: [0] }, 'books3.json': { alice: [0] } });
     });
     it('should return correct index of the search term in books3.json', () => {
-      expect(myInvertedIndex.searchIndex('an alice', ['book.json', 'books3.json']))
-      .toEqual({ 'book.json': { an: [1, 2] },
-        'books3.json': { an: [1] } });
+      expect(myInvertedIndex.searchIndex('an alice',
+      ['book.json', 'books3.json']))
+      .toEqual({ 'book.json': { an: [1, 2], alice: [0] },
+        'books3.json': { an: [1], alice: [0] } });
     });
     it('should return false when no result is found', () => {
       expect(myInvertedIndex.searchIndex('impossibility'))

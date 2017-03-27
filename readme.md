@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/andela-iakande/invertedindex/badge.svg?branch=development)](https://coveralls.io/github/andela-iakande/invertedindex?branch=development)
+
 # invertedindex
 ### Output
 
