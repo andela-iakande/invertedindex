@@ -12,4 +12,3 @@ ratings:
 exclude_paths:
 - jasmine/
 - src/js/app.js
--

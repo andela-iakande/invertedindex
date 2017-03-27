@@ -19,3 +19,4 @@ coverage
 dist
 env
 jasmine/.DS_Store
+coverage
