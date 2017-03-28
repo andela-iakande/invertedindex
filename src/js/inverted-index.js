@@ -16,28 +16,24 @@ class InvertedIndexClass {
    * @return {Boolean} false if index is not created
    */
   createIndex(fileName) {
-    if (Object.keys(this.files)) {
-      const currentFileContent = this.files[fileName];
-      this.indexTable[fileName] = this.indexTable[fileName] || {};
-      const fileLength = this.files[fileName].length;
-      for (let docIndex = 0; docIndex < fileLength; docIndex += 1) {
-        const currentFileDoc = currentFileContent[docIndex];
-        const docTitle = currentFileDoc.title;
-        const docText = currentFileDoc.text;
-        const normalize = InvertedIndexClass
+    const currentFileContent = this.files[fileName];
+    this.indexTable[fileName] = this.indexTable[fileName] || {};
+    const fileLength = this.files[fileName].length;
+    for (let docIndex = 0; docIndex < fileLength; docIndex += 1) {
+      const currentFileDoc = currentFileContent[docIndex];
+      const docTitle = currentFileDoc.title;
+      const docText = currentFileDoc.text;
+      const normalize = InvertedIndexClass
 .tokenization(`${docText} ${docTitle}`).sort();
-        normalize.forEach((word) => {
-          if (word in this.indexTable[fileName]) {
-            if (this.indexTable[fileName][word].indexOf(docIndex) === -1) {
-              this.indexTable[fileName][word].push(docIndex);
-            }
-          } else {
-            this.indexTable[fileName][word] = [docIndex];
+      normalize.forEach((word) => {
+        if (word in this.indexTable[fileName]) {
+          if (this.indexTable[fileName][word].indexOf(docIndex) === -1) {
+            this.indexTable[fileName][word].push(docIndex);
           }
-        });
-      }
-    } else {
-      return false;
+        } else {
+          this.indexTable[fileName][word] = [docIndex];
+        }
+      });
     }
     return true;
   }
@@ -112,7 +108,7 @@ class InvertedIndexClass {
           this.inputFile = null;
         }
       });
-      return true;
+      return this.inputFile || false;
     } catch (err) {
       return false;
     }
