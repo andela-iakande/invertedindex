@@ -1,0 +1,7 @@
+coverage
+dist
+jasmine
+node_modules
+env
+.coveralls.yml
+.DS_Store
