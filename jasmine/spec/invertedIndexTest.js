@@ -1,23 +1,23 @@
 /* Test Setup */
 const myInvertedIndex = new InvertedIndexClass();
 const book = require('./../books.json');
-const emptyBook = require('./../bookempty.json');
-const wrongBook = require('./../bookwrongformat.json');
+const bookempty = require('./../bookempty.json');
+const bookwrongformat = require('./../bookwrongformat.json');
 const notBook = require('./../notBook.json');
-const books = require('./../books3.json');
+const books3 = require('./../books3.json');
 
 myInvertedIndex.files['book.json'] = book;
-myInvertedIndex.files['books3.json'] = books;
+myInvertedIndex.files['books3.json'] = books3;
 
 /* Test Suites */
 describe('Inverted Index Test', () => {
   describe('ReadFile', () => {
     it('should return false when checking an empty JSON array', () => {
-      expect(myInvertedIndex.readFile(emptyBook))
+      expect(myInvertedIndex.readFile(bookempty))
         .toBeFalsy();
     });
     it('should return false when checking an wrongformatted JSON array', () => {
-      expect(myInvertedIndex.readFile(wrongBook))
+      expect(myInvertedIndex.readFile(bookwrongformat))
         .toBeFalsy();
     });
     it('should return false when book is not an array', () => {

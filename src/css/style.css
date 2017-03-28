@@ -111,11 +111,11 @@ pre code {
   font-family: monospace;
   background: lightgrey;
 }
+nav {
+  background-color: #A0522D;
+}
 .nav-wrapper{
   padding-left: 80px;
-}
-nav{
-   background-color: #A0522D;
 }
 footer {
   text-align: center;
