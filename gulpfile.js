@@ -14,9 +14,9 @@ gulp.task('lint', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch('src/js/inverted-index.js').on('change', bSync.reload);
-  gulp.watch('src/css/*.css').on('change', bSync.reload);
-  gulp.watch('src/*.html').on('change', bSync.reload);
+  gulp.watch('src/js/**/*.js').on('change', bSync.reload);
+  gulp.watch('src/css/**/*.css').on('change', bSync.reload);
+  gulp.watch('src/**/*.html').on('change', bSync.reload);
 });
 
 gulp.task('bs', () => {
@@ -58,5 +58,5 @@ gulp.task('test', (done) => {
   }, done).start();
 });
 
-gulp.task('default', ['bs', 'lint', 'watch']);
+gulp.task('default', ['bs', 'watch']);
 

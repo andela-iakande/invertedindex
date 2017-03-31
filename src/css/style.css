@@ -112,10 +112,10 @@ pre code {
   background: lightgrey;
 }
 nav{
-  background-color: #A0522D;
+  background-color:#A0522D;
 }
 .nav-wrapper{
-  padding-left: 80px;
+  padding-left: 20px;
 }
 footer {
   text-align: center;
