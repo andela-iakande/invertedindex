@@ -1,0 +1,20 @@
+{
+  "name": "invertedindex",
+  "scripts": {
+  },
+  "env": {
+    "PORT": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
