@@ -24,6 +24,9 @@ gulp.task('bs', () => {
     server: {
       baseDir: './src',
     },
+    port: process.env.PORT || 5000,
+    open: false,
+    ghostMode: false
   });
 });
 
