@@ -12,10 +12,12 @@
 <body ng-controller="indexCtrl">
   <header>
     <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo"> {{appName}}</a> 
-        </div>    
-     </nav>
+    <div class="nav-wrapper teal darken-3">
+      <a href="#" class="brand-logo left"> &nbsp; smartIN</a>
+      <a href="#modal1" class="right padInstr">Help</a>
+      <i class="material-icons right">info_outline</i>
+    </div>
+  </nav>
      <p>You are welcome to the Home of smart indexing... Enjoy your Elastic 
        search...</p>
     <div id="response-modal" class="modal fade" role="dialog">
@@ -52,7 +54,7 @@
                   <input type="file" id="fileInput">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="Choose your file">
+                  <input class="file-path validate" type="text" placeholder="Upload files here">
                 </div>
               </div>
             </form>
@@ -75,20 +77,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s6 user-manual" ng-if="!indexTable">
-        <h5> How to Use</h5>
-        <ul>
-          <li> Upload a valid JSON file</li>
-          <li> Ensure items in the file has
-            <b><em>title </em></b>and
-             <b><em>text</em></b> keys</li>
-          <li> Click on the Create Index button to create an index table for your document</li>
-          <li> Type your search word on the search space to view the index table for the selected words.</li>
-         <li> You can use the checkbox to select the book you intend searching on.</li>
-        </ul>
       </div>
     </div>
     <div class="row">
@@ -143,7 +131,26 @@
           </li>
         </ul>
       </div>
-
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal teal lighten-1">
+    <div class="modal-content white-text">
+      <h5><i class="material-icons right">info_outline</i>How To Use This App</h5>
+      <ul>
+        <li> Upload a valid JSON file</li>
+        <li>Ensure items in the file has
+            <b><em>title </em></b>and
+             <b><em>text</em></b> keys </li>
+        <li>Click on the Create Index button to create an index table for your document
+        </li>
+        <li> Type your search word on the search space to view the index table for the selected words.
+        </li>
+        <li> You can use the checkbox to select the book you intend searching on.</li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect teal lighten-1 btn-flat white-text">OK</a>
+    </div>
+  </div>
       <div class="col s6 result-place">
         <ul class = "collapsible" dat-collapsible = "accordion">
           <li ng-repeat="(file, words) in liveSearchResult">
@@ -187,13 +194,20 @@
     </div>
 
     </div>
-
   </section>
-  <footer>
-    <nav>
-      <h6>&copy;AKANDE Imisioluwa </h6>
-    </nav>
+  </div>
+  <!-- End of Modal -->
+  <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+  <!-- Beginning  of footer -->
+  <footer class="page-footer cyan darken-4">
+    <div class="footer-copyright">
+      <div class="container white-text">
+        © AKANDE Imisioluwa..2017 Inverted Index Application
+        <a class="grey-text text-lighten-4 right" href="https://github.com/andela-iakande/invertedindex">Check My GitHub</a>
+      </div>
+    </div>
   </footer>
+  <!-- End of footer -->
 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
