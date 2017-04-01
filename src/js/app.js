@@ -47,11 +47,12 @@ indexApp.controller('indexCtrl', ($scope) => {
       try {
         fileJsonContent = JSON.parse(fileReader.result);
       } catch (e) {
-        Materialize.toast('Invalid JSON file', 2000, 'red');
+      Materialize.toast('Invalid Please upload a JSON file with content',
+      2000, 'red');
         return;
       }
       if (!$scope.myInvertedIndex.readFile(fileJsonContent)) {
-        Materialize.toast('Invalid JSON file', 2000, 'red');
+      Materialize.toast('Invalid JSON file format', 2000, 'red');
 
       } else {
         $scope.myInvertedIndex.files[selectedFile.name] = fileJsonContent;
