@@ -130,4 +130,7 @@ p  {
   font-style:italic;
   text-align: center;
 }
+.padInstr {
+      margin-right: 15px !important;
+    }
 
