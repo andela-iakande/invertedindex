@@ -1,3 +1,10 @@
+/* global Materialize */
+/* global FileReader */
+/* global angular */
+/* global InvertedIndexClass */
+/* global document */
+/* global $ */
+
 const indexApp = angular.module('indexApp', []);
 indexApp.controller('indexCtrl', ($scope) => {
   $scope.appName = 'smartIN';
@@ -30,7 +37,6 @@ indexApp.controller('indexCtrl', ($scope) => {
     const fileLength = $scope.myInvertedIndex.files[fileName].length;
     return Array.from({ length: fileLength }, (value, key) => key);
   };
-
   $scope.indexFile = () => {
     $scope.myInvertedIndex.createIndex($scope.currentFileName);
     $scope.indexTable = $scope.myInvertedIndex.indexTable;
@@ -47,13 +53,12 @@ indexApp.controller('indexCtrl', ($scope) => {
       try {
         fileJsonContent = JSON.parse(fileReader.result);
       } catch (e) {
-      Materialize.toast('Invalid Please upload a JSON file with content',
+        Materialize.toast('Invalid Please upload a JSON file with content',
       2000, 'red');
         return;
       }
       if (!$scope.myInvertedIndex.readFile(fileJsonContent)) {
-      Materialize.toast('Invalid JSON file format', 2000, 'red');
-
+        Materialize.toast('Invalid JSON file format', 2000, 'red');
       } else {
         $scope.myInvertedIndex.files[selectedFile.name] = fileJsonContent;
         $scope.$apply(() => {
