@@ -1,0 +1,6 @@
+jasmine/build/bundle.js
+node_modules
+coverage
+.coveralls.yml
+jasmine/lib
+karma.conf.js

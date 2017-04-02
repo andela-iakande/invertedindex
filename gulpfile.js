@@ -5,6 +5,7 @@ const path = require('path');
 const Server = require('karma').Server;
 const browserify = require('gulp-browserify');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
 
 gulp.task('lint', () => {
   gulp.src(['src/js/inverted-index.js'])
@@ -19,7 +20,7 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*.html').on('change', bSync.reload);
 });
 
-gulp.task('bs', () => {
+gulp.task('server', () => {
   bSync.init({
     server: {
       baseDir: './src',
@@ -30,27 +31,15 @@ gulp.task('bs', () => {
   });
 });
 
-gulp.task('jasmine', ['scripts'], () => {
-  bSync.init({
-    server: {
-      baseDir: ['./jasmine', './src/js/'],
-      index: 'SpecRunner.html'
-    },
-    port: 3120,
-    ui: false,
-    ghostMode: false
-  });
-  gulp.watch(['./jasmine/spec/invertedIndexTest.js'], bSync.reload);
-});
 gulp.task('scripts', () => {
   gulp.src('jasmine/spec/invertedIndexTest.js')
+   .pipe(babel({
+     presets: ['es2015']
+   }))
    .pipe(browserify())
    .pipe(rename('bundle.js'))
    .pipe(gulp.dest('jasmine/build'));
 });
-
-gulp.task('test-jasmine', ['scripts', 'jasmine']);
-
 /**
  * Run test once and exit
  */
@@ -61,5 +50,5 @@ gulp.task('test', (done) => {
   }, done).start();
 });
 
-gulp.task('default', ['bs', 'watch']);
+gulp.task('default', ['server', 'watch']);
 
