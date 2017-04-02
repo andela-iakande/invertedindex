@@ -1,6 +1,6 @@
 coverage
 dist
-jasmine
+jasmine/build
 node_modules
 env
 .coveralls.yml
@@ -25,4 +25,3 @@ coverage
 .coveralls.yml
 dist
 env
-jasmine/.DS_Store
