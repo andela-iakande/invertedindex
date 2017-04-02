@@ -21,8 +21,9 @@ class InvertedIndexClass {
     currentFileContent.forEach((document, index) => {
       const documentTitle = document.title;
       const documentText = document.text;
-      const normalize = InvertedIndexClass
-.tokenize(`${documentText} ${documentTitle}`).sort();
+
+      const normalize = this.tokenize(`${documentText} ${documentTitle}`)
+      .sort();
       normalize.forEach((word) => {
         if (word in this.indexTable[fileName]) {
           if (this.indexTable[fileName][word].indexOf(index) === -1) {
@@ -70,7 +71,7 @@ class InvertedIndexClass {
   searchIndex(searchTerms, fileNames) {
     const fileTitle = fileNames || Object.keys(this.files);
     this.result = {};
-    const allSearchTerms = InvertedIndexClass.tokenize(searchTerms);
+    const allSearchTerms = this.tokenize(searchTerms);
     fileTitle.forEach((currentFile) => {
       allSearchTerms.forEach((term) => {
         if (Object.prototype.hasOwnProperty
