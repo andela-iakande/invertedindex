@@ -1,10 +1,10 @@
-/* Test Setup */
+import book from './../book.json';
+import bookempty from './../bookempty.json';
+import bookwrongformat from './../bookwrongformat.json';
+import notBook from './../notBook.json';
+import books3 from './../books3.json';
+
 const myInvertedIndex = new InvertedIndexClass();
-const book = require('./../book.json');
-const bookempty = require('./../bookempty.json');
-const bookwrongformat = require('./../bookwrongformat.json');
-const notBook = require('./../notBook.json');
-const books3 = require('./../books3.json');
 
 myInvertedIndex.files['book.json'] = book;
 myInvertedIndex.files['books3.json'] = books3;
