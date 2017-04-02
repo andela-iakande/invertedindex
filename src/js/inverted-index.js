@@ -50,7 +50,8 @@ class InvertedIndexClass {
    * @param {inputData} inputData The filecontent to be tokenized
    * @return {Object} An array of the generated token
    */
-  static tokenize(inputData) {
+  tokenize(inputData) {
+    this.inputData = inputData;
     this.invalidCharacters = /[^a-z0-9\s]/gi;
     return inputData.replace(this.invalidCharacters, ' ')
       .toLowerCase()
