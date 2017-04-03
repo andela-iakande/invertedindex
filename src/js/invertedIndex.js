@@ -1,7 +1,7 @@
 /**
  * @class InvertedIndex
  */
-class InvertedIndexClass {
+class invertedIndex {
   /**
    * @constructor
    */

@@ -61,7 +61,7 @@ var _books2 = _interopRequireDefault(_books);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var myInvertedIndex = new InvertedIndexClass();
+var myInvertedIndex = new invertedIndex();
 
 /* Test Suites */
 describe('Inverted Index Test', function () {

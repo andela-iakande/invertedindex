@@ -8,7 +8,7 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 
 gulp.task('lint', () => {
-  gulp.src(['src/js/inverted-index.js'])
+  gulp.src(['src/js/invertedIndex.js'])
     .pipe(eslint())
     .pipe(eslint.formatEach())
     .pipe(eslint.failAfterError());
@@ -32,7 +32,7 @@ gulp.task('server', () => {
 });
 
 gulp.task('scripts', () => {
-  gulp.src('jasmine/spec/invertedIndexTest.js')
+  gulp.src('./jasmine/spec/invertedIndex.spec.js')
    .pipe(babel({
      presets: ['es2015']
    }))
@@ -50,5 +50,5 @@ gulp.task('test', (done) => {
   }, done).start();
 });
 
-gulp.task('default', ['server', 'watch']);
+gulp.task('default', ['scripts', 'server', 'watch']);
 

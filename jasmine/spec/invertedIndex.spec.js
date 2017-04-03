@@ -4,7 +4,7 @@ import wrongFormat from './../wrongFormat.json';
 import invalidBook from './../invalidBook.json';
 import books from './../books.json';
 
-const myInvertedIndex = new InvertedIndexClass();
+const myInvertedIndex = new invertedIndex();
 
 /* Test Suites */
 describe('Inverted Index Test', () => {
