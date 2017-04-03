@@ -2,7 +2,7 @@
 import book from './../book.json';
 import bookempty from './../bookempty.json';
 import bookwrongformat from './../bookwrongformat.json';
-import notBook from './../notBook.json';
+import invalidBook from './../invalidBook.json';
 import books3 from './../books3.json';
 
 const myInvertedIndex = new InvertedIndexClass();
@@ -21,7 +21,7 @@ describe('Inverted Index Test', () => {
         .toBeFalsy();
     });
     it('should return false when book is not an array', () => {
-      expect(myInvertedIndex.readFile(notBook))
+      expect(myInvertedIndex.readFile(invalidBook))
         .toBeFalsy();
     });
     it('should return true if a valid JSON array', () => {
