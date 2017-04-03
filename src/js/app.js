@@ -1,3 +1,5 @@
+
+
 const indexApp = angular.module('indexApp', []);
 indexApp.controller('indexCtrl', ($scope) => {
   $scope.appName = 'smartIN';
